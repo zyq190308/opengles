@@ -19,16 +19,16 @@ public class MyRender implements Renderer {
 	Triangle mTriangle;
 	Square mSquare;
 	static int radio;
-	float[] mRotationMatrix = new float[16];  
+
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);//设置背景色
 		GLES20.glEnable(GLES20.GL_DEPTH_TEST);
 		//打开背面剪裁   
-		GLES20.glEnable(GLES20.GL_CULL_FACE);  
-		MatrixState.setInitStack();
-		// mTriangle = new Triangle();
-		mSquare = new Square();
+//	GLES20.glEnable(GLES20.GL_CULL_FACE);  
+//		MatrixState.setInitStack();
+		mTriangle = new Triangle();
+		//mSquare = new Square();
 
 	}
 
@@ -50,10 +50,11 @@ public class MyRender implements Renderer {
 		GLES20.glClear( GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
 
 		//Matrix.translateM(mRotationMatrix, 0, 5, 25, 5);
-		Matrix.rotateM(mRotationMatrix, 0, 30, 0.0f, 1.0f, 0.0f);
+	
 
 		
-		mSquare.draw(mRotationMatrix);
+		//mSquare.draw();
+		mTriangle.draw();
 		
 
 
